@@ -23,5 +23,6 @@ def dir_set_up():
 
 def test_everything(dir_set_up):
     sanitize.recursive_rename('test_dir')
-    assert os.listdir('test_dir') == ['soes44', 'ii__iiip3', 'taydsd___a.mp3']
+    for x in os.listdir('test_dir'):
+        assert x in ('soes44', 'ii__iiip3', 'taydsd___a.mp3')
     assert os.listdir('test_dir/soes44') == ['8u_ut.txt']
