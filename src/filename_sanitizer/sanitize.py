@@ -5,7 +5,7 @@ from filename_sanitizer.logmgr import logger
 def recursive_rename(direc):
     '''main renaming function
     requires directory as argument
-    calls itself on directories and renamer() on files'''
+    calls itself on directories and renamer on files'''
 
     try:
         for x in os.scandir(direc):
@@ -13,7 +13,10 @@ def recursive_rename(direc):
                 recursive_rename(x)
             renamer(x)
     except PermissionError as error:
-        logger.error('encountered error %s in %s', error.__str__(), x)
+        logger.error('%s', str(error))
+    except Exception as error:
+        logger.error('Unexpected: %s', str(error))
+    return None
 
 
 def renamer(x):
@@ -21,15 +24,13 @@ def renamer(x):
 
     fbit = False if x.is_dir() else True
     fname1, fname2 = (x.path, os.path.join(os.path.dirname(x), name_maker(x.name, fbit)))
-    try:
-        os.rename(fname1, fname2)
-        logger.info('renamed file %s to %s', fname1, fname2)
-    except PermissionError as error:
-        logger.error('encountered error %s in %s', error.__str__(), x)
+    os.rename(fname1, fname2)
+    logger.info('renamed file %s to %s', fname1, fname2)
+    return None
 
 
 def name_maker(fname, fbit=False):
-    '''creates new name for files using str.maketrans()'''
+    """creates new name for files using str.maketrans"""
 
     upper = 'QAZWSXEDCRFVTGBYHNUJMIKOLP'
     lower = 'qazwsxedcrfvtgbyhnujmikolp'

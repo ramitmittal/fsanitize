@@ -11,6 +11,7 @@ from filename_sanitizer import sanitize
 def test_name_maker(str00, str01):
     assert sanitize.name_maker(str00) == str01
 
+
 @pytest.fixture
 def dir_set_up():
     os.mkdir('test_dir')
@@ -21,8 +22,13 @@ def dir_set_up():
     yield
     shutil.rmtree('test_dir')
 
-def test_everything(dir_set_up):
+
+def test_recursive_rename(dir_set_up):
     sanitize.recursive_rename('test_dir')
     for x in os.listdir('test_dir'):
         assert x in ('soes44', 'ii__iiip3', 'taydsd___a.mp3')
     assert os.listdir('test_dir/soes44') == ['8u_ut.txt']
+
+
+def test_renamer():
+    pass

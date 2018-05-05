@@ -1,7 +1,8 @@
 Filename Sanitizer
 ==================
+.. image:: https://travis-ci.org/ramitmittal/filename_sanitizer.svg?branch=master
+    :target: https://travis-ci.org/ramitmittal/filename_sanitizer
 
-This is an experimental app.
 Renames all files in a directory replacing upper case to lowercase and symbols with underscores.
 All renames are logged in the rename log.
 
