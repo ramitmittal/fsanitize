@@ -8,8 +8,8 @@ def readme():
 
 setup(
         name='filename_sanitizer',
-        version='1.0',
-        description='A small python app that renames files for fun',
+        version='1.1',
+        description='A python app that sanitizes filenames',
         long_description=readme(),
         url='https://github.com/ramitmittal/filename_sanitizer',
         author='Ramit Mittal',
