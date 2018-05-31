@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
 
 
 def readme():
-    with open('README.rst') as f:
+    with open('README.md') as f:
         return f.read()
 
 
 setup(
         name='filename_sanitizer',
-        version='1.1',
+        version='1.2',
         description='A python app that sanitizes filenames',
         long_description=readme(),
         url='https://github.com/ramitmittal/filename_sanitizer',
@@ -22,4 +22,10 @@ setup(
             'console_scripts': ['filename_sanitizer=filename_sanitizer.app:main']
         },
         python_requires='>=3.6',
+        extras_require={
+            'dev': [
+                'pytest',
+                'pytest-pep8',
+                'pytest-cov'
+            ]
     )

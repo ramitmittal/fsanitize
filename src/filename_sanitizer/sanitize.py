@@ -24,8 +24,9 @@ def renamer(x):
 
     fbit = False if x.is_dir() else True
     fname1, fname2 = (x.path, os.path.join(os.path.dirname(x), name_maker(x.name, fbit)))
-    os.rename(fname1, fname2)
-    logger.info('renamed file %s to %s', fname1, fname2)
+    if not fname1 == fname2:
+        os.rename(fname1, fname2)
+        logger.info('renamed file %s to %s', fname1, fname2)
     return None
 
 
