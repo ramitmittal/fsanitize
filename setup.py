@@ -17,7 +17,6 @@ setup(
         license='GPLv3+',
         packages=find_packages(where='src'),
         package_dir={'': 'src'},
-        install_requires=['easyargs'],
         entry_points={
             'console_scripts': ['filename_sanitizer=filename_sanitizer.app:main']
         },
@@ -28,4 +27,5 @@ setup(
                 'pytest-pep8',
                 'pytest-cov'
             ]
+        }
     )
