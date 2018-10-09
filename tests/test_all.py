@@ -31,4 +31,5 @@ def test_recursive_rename(dir_set_up):
 
 
 def test_renamer():
+    '''Yet to be written.'''
     pass

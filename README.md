@@ -10,7 +10,13 @@ Renames all files in a directory replacing upper-case letters and all symbols, a
 ### Getting Started
 
 
-Usage Instructions
+Usage Instructions  
+
+1. Install the package
+```
+pip install git+https://github.com/ramitmittal/filename_sanitizer.git
+```
+2. Sanitize filenames in a directory
 ```
 filename_sanitizer <directory_path>
 ```
