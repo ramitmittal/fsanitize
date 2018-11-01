@@ -1,8 +1,8 @@
 import sys
 import os
 
-from filename_sanitizer import logmgr
-from filename_sanitizer import sanitize
+from fsanitize import logmgr
+from fsanitize import sanitize
 
 class InvalidDirError(Exception):
     """There was a problem with the provided directory path"""

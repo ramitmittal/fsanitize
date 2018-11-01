@@ -1,5 +1,5 @@
 import os
-from filename_sanitizer.logmgr import logger
+from fsanitize.logmgr import logger
 
 
 def recursive_rename(direc):

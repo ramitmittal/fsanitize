@@ -1,3 +1,4 @@
+
 from setuptools import setup, find_packages
 
 
@@ -7,20 +8,20 @@ def readme():
 
 
 setup(
-        name='filename_sanitizer',
-        version='1.2',
-        description='A python app that sanitizes filenames',
+        name='fsanitize',
+        version='1.3',
+        description='A python utility that sanitizes filenames',
         long_description=readme(),
-        url='https://github.com/ramitmittal/filename_sanitizer',
+
         author='Ramit Mittal',
         author_email='ramitmittal.k@gmail.com',
         license='GPLv3+',
         packages=find_packages(where='src'),
         package_dir={'': 'src'},
         entry_points={
-            'console_scripts': ['filename_sanitizer=filename_sanitizer.app:main']
+            'console_scripts': ['fsanitize=fsanitize.app:main']
         },
-        python_requires='>=3.6',
+        python_requires='>=3.5',
         extras_require={
             'dev': [
                 'pytest',

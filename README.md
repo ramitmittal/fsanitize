@@ -1,6 +1,6 @@
 ### Filename Sanitizer
 
-[![Build Status](https://travis-ci.org/ramitmittal/filename_sanitizer.svg?branch=master)](https://travis-ci.org/ramitmittal/filename_sanitizer)
+[![Build Status](https://travis-ci.org/ramitmittal/fsanitize.svg?branch=master)](https://travis-ci.org/ramitmittal/fsanitize)
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 
@@ -14,11 +14,11 @@ Usage Instructions
 
 1. Install the package
 ```
-pip install git+https://github.com/ramitmittal/filename_sanitizer.git
+pip install git+https://github.com/ramitmittal/fsanitize.git
 ```
 2. Sanitize filenames in a directory
 ```
-filename_sanitizer <directory_path>
+fsanitize <directory_path>
 ```
 
 ### Meta

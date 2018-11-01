@@ -1,7 +1,7 @@
 import pytest
 import os
 import shutil
-from filename_sanitizer import sanitize
+from fsanitize import sanitize
 
 
 @pytest.mark.parametrize("str00, str01", [('A&*(Kkdf)  ', 'a___kkdf___'),
