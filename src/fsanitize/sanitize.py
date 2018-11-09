@@ -15,7 +15,8 @@ def recursive_rename(direc):
     except PermissionError as error:
         logger.error('%s', str(error))
     except Exception as error:
-        logger.error('Unexpected: %s', str(error))
+        message = "An exception of type {}, with args {}, message {}".format(type(error).__name__, error.args, str(error))
+        logger.error('Unexpected: %s', message)
     return None
 
 
