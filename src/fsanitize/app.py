@@ -4,6 +4,7 @@ import os
 from fsanitize import logmgr
 from fsanitize import sanitize
 
+
 class InvalidDirError(Exception):
     """There was a problem with the provided directory path"""
 

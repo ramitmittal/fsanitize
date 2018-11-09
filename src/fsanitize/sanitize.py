@@ -33,6 +33,8 @@ def renamer(x):
 def name_maker(fname, fbit=False):
     """creates new name for files using str.maketrans"""
 
+    # make a string translation table
+    # note: . (dots) are handled later
     upper = 'QAZWSXEDCRFVTGBYHNUJMIKOLP'
     lower = 'qazwsxedcrfvtgbyhnujmikolp'
     symbols = '~!@#$%^&*()_+=-`][|}{":;?></ ,'
@@ -40,13 +42,35 @@ def name_maker(fname, fbit=False):
     orig = upper + symbols
     tran = lower + undersc
     table = str.maketrans(orig, tran)
+
+    # translate
     newname = fname.translate(table)
+
+    # files should have an extension
     if fbit:
         corrected = False
+
+        # iterate over the name in reverse, and skip the first .
         for index, value in enumerate(fname[::-1]):
             if value == '.':
                 if corrected is False:
                     corrected = True
                 else:
                     newname = newname[:(len(newname) - 1 - index)] + '_' + newname[-index:]
+
+    newname = remove_multiple_underscores(newname)
     return newname
+
+
+def remove_multiple_underscores(name):
+    """removes multiple underscores from file names."""
+
+    new_name = name[:1]
+
+    for i in range(len(name)):
+        if not i == 0:
+            if name[i] == '_' and name[i-1] == '_':
+                continue
+            else:
+                new_name += name[i]
+    return new_name
