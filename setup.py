@@ -21,7 +21,7 @@ setup(
         entry_points={
             'console_scripts': ['fsanitize=fsanitize.app:main']
         },
-        python_requires='>=3.5',
+        python_requires='>=3.6',
         extras_require={
             'dev': [
                 'pytest',
