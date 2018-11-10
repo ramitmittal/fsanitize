@@ -34,23 +34,36 @@ def renamer(x):
 def name_maker(fname, fbit=False):
     """creates new name for files using str.maketrans"""
 
-    # make a string translation table
-    # note: . (dots) are handled later
-    upper = 'QAZWSXEDCRFVTGBYHNUJMIKOLP'
-    lower = 'qazwsxedcrfvtgbyhnujmikolp'
-    symbols = '~!@#$%^&*()_+=-`][|}{":;?></ ,'
-    undersc = '______________________________'
-    orig = upper + symbols
-    tran = lower + undersc
-    table = str.maketrans(orig, tran)
+    upper_letters = 'QAZWSXEDCRFVTGBYHNUJMIKOLP'
+    lower_letters = 'qazwsxedcrfvtgbyhnujmikolp'
 
-    # translate
-    newname = fname.translate(table)
+    if not fbit:
+        # make a string translation table for directory names
 
-    # files should have an extension
-    if fbit:
+        symbols = '~!@#$%^&*()_+=-`][|}{":;?></ ,.'
+        underscores = '_' * len(symbols)
+
+        original_string = upper_letters + symbols
+        translation_string = lower_letters + underscores
+
+        # create mapping and translate
+        table = str.maketrans(original_string, translation_string)
+        newname = fname.translate(table)
+
+    else:
+        # for files, dont modify the . (dot)
+
+        symbols = '~!@#$%^&*()_+=-`][|}{":;?></ ,'
+        underscores = '_' * len(symbols)
+
+        original_string = upper_letters + symbols
+        translation_string = lower_letters + underscores
+
+        # create mapping and translate
+        table = str.maketrans(original_string, translation_string)
+        newname = fname.translate(table)
+
         corrected = False
-
         # iterate over the name in reverse, and skip the first .
         for index, value in enumerate(fname[::-1]):
             if value == '.':

@@ -9,17 +9,24 @@ from fsanitize import sanitize
                         ('A&*DF8876-=__', 'a__df8876____'),
                         ('   -   .ex', '_______.ex'),
                         ('Lord of the Rings - The Return of The King.mp4', 'lord_of_the_rings___the_return_of_the_king.mp4')])
-def test_name_maker(str00, str01):
+def test_name_maker_old(str00, str01):
     """This test if for the older version of name_maker that doesn't remove multiple underscores"""
     assert sanitize.name_maker(str00) == str01
 
 
 @pytest.mark.parametrize("str00, str01",
-                        [('A&*(Kkdf)  ', 'a_kkdf_'),
-                        ('A&*DF8876-=_', 'a_df8876_'),
+                        [('A&*(Kkdf)  .html', 'a_kkdf_.html'),
+                        ('A&*DF8.876-=_.ogg', 'a_df8_876_.ogg'),
                         ('   -   .ex', '_.ex'),
                         ('Lord of the Rings - The Return of The King.mp4', 'lord_of_the_rings_the_return_of_the_king.mp4')])
-def test_new_name_maker(str00, str01):
+def test_name_maker_files(str00, str01):
+    assert sanitize.name_maker(str00, fbit=True) == str01
+
+
+@pytest.mark.parametrize("str00, str01",
+                        [("superLOLC#2", "superlolc_2"),
+                        ("my.new.files", "my_new_files")])
+def test_name_maker_dirs(str00, str01):
     assert sanitize.name_maker(str00) == str01
 
 
