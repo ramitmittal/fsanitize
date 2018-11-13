@@ -5,21 +5,23 @@ from fsanitize import logmgr
 from fsanitize import sanitize
 
 
-class InvalidDirError(Exception):
-    """There was a problem with the provided directory path"""
-
-
 def main():
     try:
-        if os.path.exists(sys.argv[1]):
+        # IndexError if no argument
+        path_name = sys.argv[1]
+
+        # False if path does not exist
+        if os.path.exists(path_name):
             logmgr.initialize_logger()
             sanitize.recursive_rename(sys.argv[1])
         else:
-            raise InvalidDirError
-    except (IndexError, InvalidDirError):
+            print("Provided path does not exist. Exiting")
+            sys.exit(1)
+            
+    except (IndexError):
         print("Please provide a valid directory path as first argument.")
         sys.exit(1)
-        
+
 
 if __name__ == '__main__':
     main()

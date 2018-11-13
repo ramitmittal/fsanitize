@@ -3,6 +3,7 @@ import os
 import shutil
 from fsanitize import sanitize
 
+
 @pytest.mark.xfail()
 @pytest.mark.parametrize("str00, str01",
                         [('A&*(Kkdf)  ', 'a___kkdf___'),
@@ -48,9 +49,19 @@ def test_recursive_rename(dir_set_up):
     assert os.listdir('test_dir/soes44') == ['8u_ut.txt']
 
 
-def test_renamer():
-    '''Yet to be written.'''
-    pass
+@pytest.fixture
+def dir_set_up_duplicate():
+    os.mkdir('test_dir2')
+    open('test_dir2/b{a.mp3', 'a').close()
+    open('test_dir2/b}a.mp3', 'a').close()
+    yield
+    shutil.rmtree('test_dir2')
+
+
+def test_duplicate_names(dir_set_up_duplicate):
+    sanitize.recursive_rename('test_dir2')
+    for x in os.listdir('test_dir2'):
+        assert x in ('b_a.mp3', 'b_a.mp3_1')
 
 
 @pytest.mark.parametrize("name, corrected_name",
