@@ -2,10 +2,15 @@ import os
 from fsanitize.logmgr import logger
 
 
+set_of_sanitized_paths = set()
+
+
 def recursive_rename(direc):
-    '''main renaming function
-    requires directory as argument
-    calls itself on directories and renamer on files'''
+    '''Main renaming function.
+
+    Arguments:
+    direc -- the directory to sanitize
+    '''
 
     try:
         for x in os.scandir(direc):
@@ -17,22 +22,38 @@ def recursive_rename(direc):
     except Exception as error:
         message = "An exception of type {}, with args {}, message {}".format(type(error).__name__, error.args, str(error))
         logger.error('Unexpected: %s', message)
-    return None
 
 
 def renamer(x):
-    '''calls os.rename, checks if file to rename is a directory'''
+    '''Call os.rename on argument provided.
+
+    Argument:
+    x -- path of file or directory to rename.
+    '''
 
     fbit = False if x.is_dir() else True
-    fname1, fname2 = (x.path, os.path.join(os.path.dirname(x), name_maker(x.name, fbit)))
-    if not fname1 == fname2:
-        os.rename(fname1, fname2)
-        logger.info('renamed file %s to %s', fname1, fname2)
-    return None
+
+    old_path = x.path
+    new_path = os.path.join(os.path.dirname(x), name_maker(x.name, fbit))
+
+    if new_path in set_of_sanitized_paths:
+        new_path += "_1"
+    set_of_sanitized_paths.add(new_path)
+
+    if not old_path == new_path:
+        os.rename(old_path, new_path)
+        logger.info('renamed file %s to %s', old_path, new_path)
 
 
 def name_maker(fname, fbit=False):
-    """creates new name for files using str.maketrans"""
+    """Creates new name for files using str.maketrans
+
+    Arguments:
+    fname -- filename to sanitize
+
+    Keyword Arguments:
+    fbit -- boolean, set true to save the last . and preserve file extensions (default False)
+    """
 
     upper_letters = 'QAZWSXEDCRFVTGBYHNUJMIKOLP'
     lower_letters = 'qazwsxedcrfvtgbyhnujmikolp'
@@ -77,7 +98,11 @@ def name_maker(fname, fbit=False):
 
 
 def remove_multiple_underscores(name):
-    """removes multiple underscores from file names."""
+    """Removes multiple consecutive underscores from the argument and return it.
+
+    Arguments:
+    name -- string to remove multiple consecutive underscores from
+    """
 
     new_name = name[:1]
 

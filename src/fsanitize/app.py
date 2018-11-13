@@ -19,7 +19,7 @@ def main():
     except (IndexError, InvalidDirError):
         print("Please provide a valid directory path as first argument.")
         sys.exit(1)
-        
+
 
 if __name__ == '__main__':
     main()
