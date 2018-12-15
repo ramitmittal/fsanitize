@@ -69,3 +69,11 @@ def test_duplicate_names(dir_set_up_duplicate):
                         ("0xs__r____rR___.mp3", "0xs_r_rR_.mp3")])
 def test_remove_multiple_underscores(name, corrected_name):
     assert sanitize.remove_multiple_underscores(name) == corrected_name
+
+
+def test_permission_error():
+    pass
+
+
+def test_recursive_rename_exceptions():
+    pass

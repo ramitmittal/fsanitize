@@ -1,9 +1,12 @@
 *.pyc
 /dist/
 /build/
-.vscode/
 /src/*.egg-info
-*~
-.pytest_cache/
 
+.pytest_cache/
 .coverage
+htmlcov/
+
+.vscode/
+*~
+.idea/

@@ -6,6 +6,12 @@ from fsanitize import sanitize
 
 
 def main():
+    """
+    Main entry point for app.
+
+    Requires path name as command line argument.
+    """
+
     try:
         # IndexError if no argument
         path_name = sys.argv[1]
@@ -17,7 +23,7 @@ def main():
         else:
             print("Provided path does not exist. Exiting")
             sys.exit(1)
-            
+
     except (IndexError):
         print("Please provide a valid directory path as first argument.")
         sys.exit(1)
