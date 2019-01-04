@@ -9,13 +9,18 @@ def readme():
 
 setup(
         name='fsanitize',
-        version='2.0',
+        version='2.0.1',
         description='A python utility that sanitizes filenames',
         long_description=readme(),
-
+        long_description_content_type="text/markdown",
+        url="https://github.com/ramitmittal/fsanitize",
         author='Ramit Mittal',
         author_email='ramitmittal.k@gmail.com',
         license='GPLv3+',
+        classifiers=[
+            "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+            "Programming Language :: Python :: 3"
+        ],
         packages=find_packages(where='src'),
         package_dir={'': 'src'},
         entry_points={
