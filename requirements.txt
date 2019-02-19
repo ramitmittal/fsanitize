@@ -1,11 +1,15 @@
-atomicwrites==1.1.5
-attrs==18.1.0
-flake8==3.5.0
-mccabe==0.6.1
-more-itertools==4.2.0
-pluggy==0.6.0
-py==1.5.3
-pycodestyle==2.3.1
-pyflakes==1.6.0
-pytest==3.6.0
-six==1.11.0
+apipkg==1.5
+atomicwrites==1.3.0
+attrs==18.2.0
+coverage==4.5.2
+execnet==1.5.0
+-e git+https://github.com/ramitmittal/fsanitize.git@af471d7fadc291aaa6bf622de38e74b06231dc39#egg=fsanitize
+more-itertools==6.0.0
+pep8==1.7.1
+pluggy==0.8.1
+py==1.7.0
+pytest==4.3.0
+pytest-cache==1.0
+pytest-cov==2.6.1
+pytest-pep8==1.0.6
+six==1.12.0

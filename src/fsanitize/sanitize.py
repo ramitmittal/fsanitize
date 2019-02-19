@@ -72,7 +72,7 @@ def name_maker(fname, fbit=False):
         newname = fname.translate(table)
 
     else:
-        # for files, dont modify the . (dot)
+        # for files, don't modify the . (dot)
 
         symbols = '~!@#$%^&*()_+=-`][|}{":;?></ ,'
         underscores = '_' * len(symbols)

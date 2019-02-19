@@ -24,7 +24,7 @@ def main():
             print("Provided path does not exist. Exiting")
             sys.exit(1)
 
-    except (IndexError):
+    except IndexError:
         print("Please provide a valid directory path as first argument.")
         sys.exit(1)
 
