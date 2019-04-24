@@ -9,7 +9,7 @@ def readme():
 
 setup(
         name='fsanitize',
-        version='2.0.1',
+        version='2.0.2',
         description='A python utility that sanitizes filenames',
         long_description=readme(),
         long_description_content_type="text/markdown",
