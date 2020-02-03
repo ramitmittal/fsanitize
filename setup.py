@@ -13,7 +13,7 @@ setup(
         description='A python utility that sanitizes filenames',
         long_description=readme(),
         long_description_content_type="text/markdown",
-        url="https://github.com/ramitmittal/fsanitize",
+        url="https://gitlab.com/ramitmittal/fsanitize",
         author='Ramit Mittal',
         author_email='ramitmittal.k@gmail.com',
         license='GPLv3+',

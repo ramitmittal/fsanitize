@@ -15,12 +15,12 @@ Filename Sanitize also serves as a sample python project for exploring/learning 
 ### Getting started  
 
 * Install the package  
-`pip install git+https://github.com/ramitmittal/fsanitize.git`
+`pip install git+https://gitlab.com/ramitmittal/fsanitize.git`
 * Sanitize filenames in a directory  
 `fsanitize <directory_path>`
 
 
 ### Meta
-* Author: [Ramit Mittal](https://ramitmittal.tech) - [@ramitm](https://bitbucket.com/ramitm)
+* Author: [Ramit Mittal](https://ramitmittal.tech) - [@ramitmittal](https://gitlab.com/ramitmittal)
 * Distributed under GNU GPLv3. See **LICENSE** for more information.
 * Contributions are welcome, submit a pull request.
